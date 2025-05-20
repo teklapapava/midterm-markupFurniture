@@ -1,0 +1,90 @@
+
+.spring-promo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .spring-promo-container{
+        width: 90vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+    
+        .spring-promo-img-wrapper,
+        .spring-promo-content{
+            width: 100%;
+            max-width: 500px;
+
+            img{
+                width: 100%;
+                height: auto;
+                display: block;
+                object-fit: cover;
+                // justify-content: center;
+                // padding-left: 50px;
+            }
+        }
+
+        .spring-promo-content{
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            // align-items: center;
+            gap: 20px;
+        }
+        
+        h5{
+            color: rgba(11, 57, 84, 1);
+            // font-family: 'Roboto';
+            // font-weight: 600;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    
+        h3{
+            color: rgba(11, 57, 84, 1);
+            // font-family: 'Roboto';
+            // font-weight: 700;
+            font-size: 48px;
+            line-height: 55px;
+        }
+    
+        h4{
+            color: rgba(92, 103, 109, 1);
+            // font-family: 'Roboto';
+            // font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            // opacity: 50%;
+        }
+    
+        button{
+            background-color: rgba(255, 177, 40, 1);
+            height: 44px;
+            width: 190px;
+            border-radius: 80px;
+            border: none;
+            padding: 15px, 35px;
+            color: rgba(255, 255, 255, 1);
+            // font-family: 'Roboto';
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 14px;
+            letter-spacing: 0%;
+            cursor: pointer;
+    
+            &:hover{
+                background-color:darken(rgba(11, 57, 84, 1), 5%);
+            }
+        }
+    }
+}
+
+
+
+
+  

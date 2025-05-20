@@ -1,0 +1,91 @@
+@mixin flex($justify: center, $align: center, $direction: row, $wrap: nowrap) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+  }
+
+
+
+.photo-section {
+    @include flex(center, center, row, wrap);
+    width: 100vw;
+    // height: auto;
+    gap: 20px;
+    padding: 40px;
+
+    .photo-card {
+      position: relative;
+      width: 400px;
+      min-width: 320px;
+      height: 100vh;
+    //   height: 100%;
+    @include flex(center, center, column, row);
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      border-radius: 30px;
+      color: white;
+      font-family: "Roboto";  
+      gap: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+      &:hover{
+        h3{
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+        }
+        .line{
+            transition: transform 0.3s ease;
+            transform: translateY(-10px);
+        }
+      }
+
+      h5 {
+        position: absolute;
+        bottom: 30%;
+        left: 7%;
+        font-size: 1rem;
+        opacity: 0.85;
+    }
+
+    h3 {
+        position: absolute;
+        bottom: 17%;
+        left: 7%;
+        font-size: 3rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .line{
+        position: absolute;
+        bottom: 15%;
+        left: 7%;
+        width: 20px;
+        height: 7px;
+        border-radius: 30px;
+        background-color: #ffb933;
+        cursor: pointer;
+    }
+
+
+    }
+
+    .photo-card:nth-child(1) {
+      background-image: url('./photo/bedroom.png');
+    }
+    
+    .photo-card:nth-child(2) {
+      background-image: url('./photo/office.png');
+    }
+    
+    .photo-card:nth-child(3) {
+      background-image: url('./photo/kitchen.png');
+  }
+
+  }
+  
+  
+
