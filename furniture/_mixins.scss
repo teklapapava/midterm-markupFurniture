@@ -1,0 +1,36 @@
+@mixin flex-center($direction: row, $gap: 0, $justify: center, $align: center) {
+    display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+  @mixin text-style($color, $size, $weight: 400) {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+  
+  @mixin box-style($padding, $bg, $radius) {
+    padding: $padding;
+    background-color: $bg;
+    border-radius: $radius;
+  }
+
+  @mixin flex($justify: center, $align: center, $direction: row, $wrap: nowrap) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+  }
+  @mixin flex-center($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+  }
+
+
+
