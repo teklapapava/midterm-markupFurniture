@@ -1,10 +1,10 @@
-@import'mixins';
+@import 'mixins';
 @import 'variables';
-@import "header";
-@import "heroSection";
-@import "statsSection";
-@import "photoSection";
-@import "fourthSection";
+@import 'header';
+@import 'heroSection';
+@import 'statsSection';
+@import 'photoSection';
+@import 'fourthSection';
 
 
 * {
@@ -19,5 +19,5 @@
 
 
 body {
-  overflow-x: hidden
+  overflow-x: hidden,
 }

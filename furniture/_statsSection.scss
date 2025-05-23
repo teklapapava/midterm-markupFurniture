@@ -1,18 +1,22 @@
 @import 'mixins';
 
 .stats-container {
-  margin-top: 50px;
+  // margin-top: 50px;
+  // margin-bottom: 500px;
   width: 100%;
-  @include flex-center(row, 0, center, center);
+  @include flex-center;
   margin-bottom: 50px;
 
   .stats-left {
     width: 90vw;
-    @include flex-center(row, 2rem, space-around, center);
+    @include flex-center(row, space-around);
+    gap: 2rem;
     flex-wrap: wrap;
+    margin-bottom: 100px;
+    margin-top: 100px;
 
     .intro {
-      @include flex-center(row, 0, center, flex-start);
+      @include flex-center(column, start, start);
 
       h5 {
         @include text-style(rgba(11, 57, 84, 1), 12px, 600);
@@ -27,11 +31,14 @@
     }
 
     .counters {
-      @include flex-center(row, 2rem, center, center);
+      @include flex-center;
+      gap: 2rem;
       flex-wrap: wrap;
 
       .counter-box {
-        @include flex-center(row, 1.5rem, center, center);
+        @include flex-center;
+      gap: 1.5rem;
+
 
         h3 {
           &.counter {
@@ -46,7 +53,7 @@
       .border, .border2 {
         width: 30px;
         height: 10px;
-        @include box-style($bg: #ffb933, $radius: 30px);
+        @include box-style(1px, #ffb933, 30px);
       }
     }
   }
@@ -58,12 +65,14 @@
   justify-content: center;
 
   .stats-menu {
-    @include flex-center(row, 2rem, space-around, center);
+    @include flex-center(row, space-around);
+    gap: 1rem;
     flex-wrap: wrap;
     width: 90vw;
+    margin-bottom: 100px;
 
     .item {
-      @include flex-center(column, 0, center, center);
+      @include flex-center(column);
       @include box-style(1rem, #f6f6f6, 12px);
       min-width: 120px;
       cursor: pointer;
@@ -71,7 +80,8 @@
       a {
         text-decoration: none;
         color: #0b3954;
-        @include flex-center(column, 0.5rem, center, center);
+        @include flex-center(column);
+        gap:  0.5rem;
 
         img {
           object-fit: contain;

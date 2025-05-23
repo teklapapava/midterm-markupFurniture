@@ -2,12 +2,14 @@
 
 .spring-promo{
     width: 100%;
-    @include flex-center(row, 0, center, center);
+    @include flex-center;
 
     .spring-promo-container{
         width: 90vw;
-        @include flex-center(row, 10%, center, center);
+        @include flex-center;
+        gap: 7rem;
         flex-wrap: wrap;
+        margin-bottom: 150px;
     
         .spring-promo-img-wrapper,
         .spring-promo-content{
@@ -23,19 +25,20 @@
         }
 
         .spring-promo-content{
-            @include flex-center(column, 20px, center, center);
+            @include flex-center(column, start, start);
+            gap: 20px;
         }
         
         h5{
-            @include text-style(rgba(11, 57, 84, 1), 12px, 400);
+            @include text-style(rgba(11, 57, 84, 1), 1rem, bold);
         }
     
         h3{
-            @include text-style(rgba(11, 57, 84, 1), 12px, 400);
+            @include text-style(rgba(11, 57, 84, 1), 3rem, bold);
         }
     
         h4{
-            @include text-style(rgba(92, 103, 109, 1), 16px, 400);
+            @include text-style(rgba(92, 103, 109, 1),1rem);
         }
     
         button{
