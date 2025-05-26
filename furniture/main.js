@@ -201,33 +201,213 @@ userIcon.addEventListener("click", ()=>{
 
 
 
-const chairs = document.getElementById("CHAIRS")
+const chairs = document.getElementById("CHAIRS");
+let chair;
 
 chairs.addEventListener("mouseenter", ()=>{
-    const chair = document.createElement("div");
-    chair.classList.add("chair");
-    chair.innerHTML = `
-    <div class = "frstDiv">
-    <span>Armchairs <img src= "./photo/right-arrow.png" alt="right-arrow"></span><br>
-    <span>Bar stools <img src= "./photo/right-arrow.png" alt="right-arrow"></span><br>
-    <span>Chair pads <img src= "./photo/right-arrow.png" alt="right-arrow"></span><br>
-    <span>Chaise lounges <img src= "./photo/right-arrow.png" alt="right-arrow"></span><br>
-    <span>Chaise lounges <img src= "./photo/right-arrow.png" alt="right-arrow"></span><br>
-    <span>Dining Chairs  <img src= "./photo/right-arrow.png" alt="right-arrow"></span>
 
-    </div>
-    `
-    
+    if(!chair){
+
+        chair = document.createElement("div");
+        chair.classList.add("chair");
+        chair.innerHTML = `
+        <div class = "menu-wrapper">
+        <div class = "chairSubmenu">
+            <span>ARMCHAIRS<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
+            <span>BAR STOOLS<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
+            <span>CHAIR PADS<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
+            <span>CHAISE LOUNGES<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
+            <span>CHAISE LOUNGES<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
+            <span>DINING CHAIRS<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
+        </div>
+
+        <div class= "recommendation-box">
+        <img src= "./photo/chairforsubmenu.png" alt="chair">
+        <span>WE RECOMMEND</span>
+        <span>Fancy chair</span>
+        <span>Rutrum non id sem turpis elementum vel id. Magna.</span>
+        <span>$1550.00</span>
+
+        </div>
+        </div>
+        
+        `;
 
 
+        document.body.appendChild(chair);
+        // document.section.classList.add("darken") სექციებს აიდიები დააამატე დაიჭირე აიდით და მერე შეუცვლა კლასი
 
+        chair.addEventListener("mouseleave", handleMouseLeave)
+        // chair.addEventListener("mouseenter", ()=>{
 
-
-    document.body.appendChild(chair);
-
+        // })
+    }
 })
-chairs.addEventListener("mouseleave", () => {
-    const chair = document.querySelector(".chair");
-    chair.remove();
     
-  });
+function handleMouseLeave(){
+    setTimeout(()=>{
+        if(
+            // (!chair.matches(":hover"))&&
+            // !chair || !chair.matches(":hover")
+            (!chair || (!chair.matches(":hover") && !chairs.matches(":hover")))
+        ){
+            if(chair){
+                chair.remove()
+                chair= null
+            }
+        }
+    }, 150)
+}
+
+chairs.addEventListener("mouseleave", handleMouseLeave);
+
+// chairs.addEventListener("mouseleave", () => {
+
+//     setTimeout(() =>{
+//         const chair = document.querySelector(".chair");
+//         if(chair && !chair.matches(":hover") && !chair.matches(":hover")){
+    
+//             chair.remove();
+//         }
+
+//     }, 200)
+    
+//   });
+
+
+
+// document.body.addEventListener("mouseleave", ()=>{
+//     const chair = document.querySelector(".chair");
+//     if(chair) chair.remove();
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const chairs = document.getElementById("CHAIRS");
+// let chair; // გლობალურად გამოვაცხადოთ, რომ შემდეგ შევამოწმოთ
+
+// function createChair() {
+//   if (!chair) {
+//     chair = document.createElement("div");
+//     chair.classList.add("chair");
+//     chair.innerHTML = `
+//       <div class="frstDiv">
+//         <span>ARMCHAIRS<img src="./photo/right-arrow.png" alt="right-arrow"></span><br>
+//         <span>BAR STOOLS<img src="./photo/right-arrow.png" alt="right-arrow"></span><br>
+//         <span>CHAIR PADS<img src="./photo/right-arrow.png" alt="right-arrow"></span><br>
+//         <span>CHAISE LOUNGES<img src="./photo/right-arrow.png" alt="right-arrow"></span><br>
+//         <span>CHAISE LOUNGES<img src="./photo/right-arrow.png" alt="right-arrow"></span><br>
+//         <span>DINING CHAIRS<img src="./photo/right-arrow.png" alt="right-arrow"></span>
+//       </div>
+//     `;
+//     document.body.appendChild(chair);
+
+//     // მივამაგროთ .chair-ზეც mouseleave
+//     chair.addEventListener("mouseleave", handleMouseLeave);
+//     chair.addEventListener("mouseenter", () => {
+//       // არაფერს ვაკეთებთ, უბრალოდ ხელს ვუშლით გაქრობას
+//     });
+//   }
+// }
+
+// function handleMouseLeave() {
+//   setTimeout(() => {
+//     if (
+//       !chairs.matches(":hover") &&
+//       (!chair || !chair.matches(":hover"))
+//     ) {
+//       if (chair) {
+//         chair.remove();
+//         chair = null;
+//       }
+//     }
+//   }, 150);
+// }
+
+// chairs.addEventListener("mouseenter", createChair);
+// chairs.addEventListener("mouseleave", handleMouseLeave);

@@ -138,7 +138,7 @@
 }
 .header-menu .menu-item a:hover .icon {
   filter: invert(71%) sepia(85%) saturate(536%) hue-rotate(1deg) brightness(97%) contrast(100%);
-  transition: filter 0.001s ease;
+  transition: filter 0.0001s ease;
 }
 .header-menu .menu-item:nth-of-type(6) {
   border-right: none;
@@ -472,10 +472,16 @@
   color: black;
 }
 
+.menu-wrapper {
+  position: relative;
+  display: flex;
+}
+
 .chair {
+  display: flex;
+  position: absolute;
   width: 800px;
   height: 350px;
-  background-color: red;
   position: fixed;
   z-index: 999;
   left: 100px;
@@ -483,31 +489,84 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-.chair .frstDiv {
+.chair .chairSubmenu {
   width: 300px;
   height: 350px;
   background-color: white;
   border-bottom-left-radius: 20px;
 }
-.chair .frstDiv span {
+.chair .chairSubmenu span {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 20px 20px;
+  font-size: 13px;
   border-bottom: 1px solid rgb(209, 207, 207);
   font-family: "Roboto";
   font-weight: bold;
   color: rgb(42, 42, 63);
+  opacity: 80%;
+  cursor: pointer;
 }
-.chair .frstDiv span img {
+.chair .chairSubmenu span img {
   width: 10px;
   height: 10px;
-  opacity: 20%;
+  opacity: 30%;
 }
-.chair .frstDiv span:last-child {
+.chair .chairSubmenu span:last-child {
   border-bottom: none;
 }
-.chair .frstDiv span:hover {
+.chair .chairSubmenu span:hover {
   color: #ffb933;
+}
+.chair .chairSubmenu span:hover img {
+  opacity: 100%;
+  filter: invert(71%) sepia(85%) saturate(536%) hue-rotate(1deg) brightness(100%) contrast(100%);
+}
+.chair .recommendation-box {
+  width: 500px;
+  height: 100%;
+  background-color: #f6f6f6;
+  border-bottom-right-radius: 20px;
+  font-family: "Roboto";
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 40px 30px;
+  position: relative;
+}
+.chair .recommendation-box img {
+  position: absolute;
+  top: 40%;
+  left: 80%;
+  max-width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.chair .recommendation-box span:nth-child(2) {
+  font-family: "Roboto";
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(89, 149, 184);
+}
+.chair .recommendation-box span:nth-child(3) {
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(73, 71, 71);
+}
+.chair .recommendation-box span:nth-child(4) {
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 20px;
+  color: gray;
+}
+.chair .recommendation-box span:nth-child(5) {
+  font-size: 18px;
+  font-family: "Roboto";
+  font-weight: bold;
+  color: rgb(11, 57, 84);
 }
 
 .hero-section {
@@ -857,4 +916,8 @@
 
 body {
   overflow-x: hidden;
+}
+
+section.darken {
+  background-color: gray;
 }/*# sourceMappingURL=main.css.map */
