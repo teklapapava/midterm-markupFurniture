@@ -6,6 +6,9 @@
   align-items: center;
   gap: 1rem;
   padding: 2%;
+  position: relative;
+  z-index: 1000;
+  background-color: white;
 }
 .header-top .header-logo {
   display: flex;
@@ -128,6 +131,7 @@
   align-items: center;
   text-align: center;
   border-right: 1px solid rgb(221, 218, 218);
+  position: relative;
 }
 .header-menu .menu-item a {
   text-decoration: none;
@@ -170,11 +174,23 @@
   height: 28px;
 }
 
+.bckcolor {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  position: fixed;
+  z-index: 888;
+  top: 0;
+}
+
 @media (max-width: 917px) {
+  .header-top {
+    position: relative;
+  }
   .header-top .header-search {
     display: none;
     padding: 0;
-    width: auto;
   }
   .header-top .header-search input {
     display: none;
@@ -203,23 +219,48 @@
     display: flex;
   }
   .header-menu {
-    position: absolute;
-    top: 70px;
-    gap: 2rem;
+    position: fixed;
+    width: 200px;
+    height: 100vh;
+    top: 0;
     right: 0;
+    gap: 2rem;
     flex-direction: column;
     justify-content: start;
-    background: white;
+    background: #f6f6f6;
     display: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10001;
+  }
+  .header-menu .sale-item {
+    display: none;
   }
   .header-menu .menu-item {
     flex-direction: row;
     gap: 1rem;
     justify-content: start;
+    border: none;
+    padding-top: 10px;
   }
-  .header-menu .menu-item a:nth-child(3) {
+  .header-menu .menu-item a .icon {
     display: none;
+  }
+  .header-menu .Burger-Cls {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    right: 30px;
+    top: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .header-menu .Burger-Cls img {
+    width: 15px;
+    height: 15px;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .header-menu.open {
     display: flex;
@@ -233,7 +274,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 999;
+  z-index: 1000;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
 }
 .cartDiv .closeButton {
@@ -472,34 +513,32 @@
   color: black;
 }
 
-.menu-wrapper {
-  position: relative;
-  display: flex;
-}
-
-.chair {
-  display: flex;
+.submenu {
+  display: none;
   position: absolute;
-  width: 800px;
+  width: 600px;
   height: 350px;
-  position: fixed;
   z-index: 999;
-  left: 100px;
-  top: 204px;
+  left: 0;
+  top: 100%;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-.chair .chairSubmenu {
+.submenu .menu-wrapper {
+  position: relative;
+  display: flex;
+}
+.submenu .category-submenu {
   width: 300px;
   height: 350px;
   background-color: white;
   border-bottom-left-radius: 20px;
 }
-.chair .chairSubmenu span {
+.submenu .category-submenu span {
   display: flex;
   justify-content: space-between;
-  padding: 20px 20px;
-  font-size: 13px;
+  padding: 18px 25px;
+  font-size: 0.8rem;
   border-bottom: 1px solid rgb(209, 207, 207);
   font-family: "Roboto";
   font-weight: bold;
@@ -507,66 +546,73 @@
   opacity: 80%;
   cursor: pointer;
 }
-.chair .chairSubmenu span img {
+.submenu .category-submenu span img {
   width: 10px;
   height: 10px;
   opacity: 30%;
 }
-.chair .chairSubmenu span:last-child {
+.submenu .category-submenu span:last-child {
   border-bottom: none;
 }
-.chair .chairSubmenu span:hover {
+.submenu .category-submenu span:hover {
   color: #ffb933;
 }
-.chair .chairSubmenu span:hover img {
+.submenu .category-submenu span:hover img {
   opacity: 100%;
   filter: invert(71%) sepia(85%) saturate(536%) hue-rotate(1deg) brightness(100%) contrast(100%);
 }
-.chair .recommendation-box {
-  width: 500px;
-  height: 100%;
+.submenu .recommendation-box {
+  width: 400px;
+  height: 350px;
   background-color: #f6f6f6;
   border-bottom-right-radius: 20px;
   font-family: "Roboto";
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
   gap: 25px;
-  padding: 40px 30px;
+  padding: 40px;
   position: relative;
 }
-.chair .recommendation-box img {
+.submenu .recommendation-box img {
   position: absolute;
   top: 40%;
-  left: 80%;
+  left: 65%;
   max-width: 200px;
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
 }
-.chair .recommendation-box span:nth-child(2) {
+.submenu .recommendation-box span:nth-child(2) {
   font-family: "Roboto";
-  font-size: 15px;
+  font-size: 0.8rem;
   font-weight: bold;
   color: rgb(89, 149, 184);
 }
-.chair .recommendation-box span:nth-child(3) {
+.submenu .recommendation-box span:nth-child(3) {
   font-family: "Roboto";
   font-weight: bold;
-  font-size: 30px;
+  font-size: 1.5rem;
   color: rgb(73, 71, 71);
 }
-.chair .recommendation-box span:nth-child(4) {
+.submenu .recommendation-box span:nth-child(4) {
   font-family: "Roboto";
   font-weight: bold;
-  font-size: 20px;
+  font-size: 0.8rem;
   color: gray;
 }
-.chair .recommendation-box span:nth-child(5) {
-  font-size: 18px;
+.submenu .recommendation-box span:nth-child(5) {
+  font-size: 15px;
   font-family: "Roboto";
   font-weight: bold;
   color: rgb(11, 57, 84);
+}
+
+.cabinets {
+  right: 100px;
+  left: auto;
 }
 
 .hero-section {
@@ -596,11 +642,77 @@
   -o-object-fit: contain;
      object-fit: contain;
 }
+.hero-section .main-img .plus {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  top: 50px;
+  background-color: #ffb933;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.hero-section .main-img .plus::before, .hero-section .main-img .plus::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(174, 172, 172, 0.568627451);
+  background-color: rgba(255, 254, 254, 0.082);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  cursor: pointer;
+}
+.hero-section .main-img .plus::before {
+  width: 45px;
+  height: 45px;
+}
+.hero-section .main-img .plus::after {
+  width: 60px;
+  height: 60px;
+}
+.hero-section .main-img .frstPlus {
+  top: 73%;
+  left: 45%;
+}
+.hero-section .main-img .frstPlus:hover .hover-card {
+  display: flex;
+}
+.hero-section .main-img .frstPlus:hover {
+  transform: scale(1.1);
+  transition: transform 0.01s ease;
+}
+.hero-section .main-img .scndPlus {
+  top: 45%;
+  left: 70%;
+}
+.hero-section .main-img .scndPlus:hover .hover-card {
+  display: flex;
+}
+.hero-section .main-img .scndPlus:hover {
+  transform: scale(1.1);
+  transition: transform 0.01s ease;
+}
+.hero-section .main-img .thrdPlus {
+  top: 67%;
+  right: 12%;
+}
+.hero-section .main-img .thrdPlus:hover .hover-card {
+  display: flex;
+  transform: translate(-65%, 10%);
+}
+.hero-section .main-img .thrdPlus:hover {
+  transform: scale(1.1);
+  transition: transform 0.01s ease;
+}
 .hero-section .hero-content {
   position: absolute;
   top: 15%;
   left: 10%;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -645,6 +757,36 @@
 .hero-section .hero-content .hero-buttons button.collection-button:hover {
   background-color: rgb(255, 177, 40);
   color: rgb(255, 255, 255);
+}
+.hero-section .hover-card {
+  width: 250px;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+  border-radius: 10%;
+  transform: translate(65%, 10%);
+  z-index: 999 !important;
+  pointer-events: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.hero-section .hover-card .fordisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.hero-section .hover-card .fordisplay img {
+  width: 120px;
+  height: 120px;
+}
+.hero-section .hover-card .fordisplay :nth-child(2),
+.hero-section .hover-card .fordisplay :nth-child(3) {
+  color: rgb(11, 57, 84);
+  font-family: "Roboto";
+  font-size: 1rem;
 }
 
 .stats-container {

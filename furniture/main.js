@@ -1,18 +1,20 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-    
+
     const burgerBtn = document.getElementById("burger-btn");
     const headerMenu = document.querySelector(".header-menu");
+    const burgerCls = document.getElementById("burger-Cls");
 
-    if(burgerBtn && headerMenu){
-        burgerBtn.addEventListener("click", ()=> {
-            headerMenu.classList.toggle('open');
+
+    burgerBtn.addEventListener('click', () => {
+        headerMenu.classList.toggle('open');
+        burgerCls.style.display = "flex";
+    
+    
+        burgerCls.addEventListener('click', ()=>{
+            headerMenu.classList.remove('open');
+            burgerCls.style.display = "none";
         })
-    }
-
-});
-
-
+    });
 
 // cart
 
@@ -130,7 +132,7 @@ function cart(){
 
     const closeBtn = document.querySelector(".closeButton");
     closeBtn.addEventListener("click", ()=>{
-        cartDiv.remove();
+     cartDiv.remove();
     })
 }
 
@@ -179,107 +181,60 @@ userIcon.addEventListener("click", ()=>{
     })
 })
 
+// mouseover menu modal
+
+    const menuItem = document.querySelectorAll(".menu-item");
+    const body = document.querySelector(".body");
+    // const springPromoImgWrapper = document.querySelector(".spring-promo-img-wrapper");
+    const overlay = document.querySelector(".bckcolor")
+
+    menuItem.forEach(item => {
+        const submenu = item.querySelector(".submenu");
+
+        item.addEventListener("mouseover", ()=>{
+            submenu.style.display = "flex";
+            // body.style.backgroundColor = "gray";
+            overlay.style.display = "block"
+
+            // springPromoImgWrapper.style.opacity = "0.05";
+
+        })
+
+        item.addEventListener("mouseout", ()=>{
+            submenu.style.display = "none";
+            // body.style.backgroundColor = "";
+            overlay.style.display = "none"
+
+            // springPromoImgWrapper.style.opacity = "1";
+
+        })
+    })
 
 
 
 
-// const menuItem = document.querySelectorAll(".icon");
-
-// menuItem.forEach((menuItem) => {
-
-//     menuItem.addEventListener('mouseenter', ()=>{
-//         menuItem.src = './photo/tekol.png';
-        
-//     });
-    
-//     menuItem.addEventListener('mouseleave', ()=>{
-//         menuItem.src = './photo/chairs-icon.png';
-//     })
-// })
 
 
 
 
 
-const chairs = document.getElementById("CHAIRS");
-let chair;
-
-chairs.addEventListener("mouseenter", ()=>{
-
-    if(!chair){
-
-        chair = document.createElement("div");
-        chair.classList.add("chair");
-        chair.innerHTML = `
-        <div class = "menu-wrapper">
-        <div class = "chairSubmenu">
-            <span>ARMCHAIRS<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
-            <span>BAR STOOLS<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
-            <span>CHAIR PADS<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
-            <span>CHAISE LOUNGES<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
-            <span>CHAISE LOUNGES<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
-            <span>DINING CHAIRS<img src= "./photo/right-arrow.png" alt="right-arrow"></span>
-        </div>
-
-        <div class= "recommendation-box">
-        <img src= "./photo/chairforsubmenu.png" alt="chair">
-        <span>WE RECOMMEND</span>
-        <span>Fancy chair</span>
-        <span>Rutrum non id sem turpis elementum vel id. Magna.</span>
-        <span>$1550.00</span>
-
-        </div>
-        </div>
-        
-        `;
-
-
-        document.body.appendChild(chair);
-        // document.section.classList.add("darken") სექციებს აიდიები დააამატე დაიჭირე აიდით და მერე შეუცვლა კლასი
-
-        chair.addEventListener("mouseleave", handleMouseLeave)
-        // chair.addEventListener("mouseenter", ()=>{
-
-        // })
-    }
-})
-    
-function handleMouseLeave(){
-    setTimeout(()=>{
-        if(
-            // (!chair.matches(":hover"))&&
-            // !chair || !chair.matches(":hover")
-            (!chair || (!chair.matches(":hover") && !chairs.matches(":hover")))
-        ){
-            if(chair){
-                chair.remove()
-                chair= null
-            }
-        }
-    }, 150)
-}
-
-chairs.addEventListener("mouseleave", handleMouseLeave);
-
-// chairs.addEventListener("mouseleave", () => {
-
-//     setTimeout(() =>{
-//         const chair = document.querySelector(".chair");
-//         if(chair && !chair.matches(":hover") && !chair.matches(":hover")){
-    
-//             chair.remove();
-//         }
-
-//     }, 200)
-    
-//   });
 
 
 
-// document.body.addEventListener("mouseleave", ()=>{
-//     const chair = document.querySelector(".chair");
-//     if(chair) chair.remove();
-// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -369,7 +324,7 @@ chairs.addEventListener("mouseleave", handleMouseLeave);
 
 
 // const chairs = document.getElementById("CHAIRS");
-// let chair; // გლობალურად გამოვაცხადოთ, რომ შემდეგ შევამოწმოთ
+// let chair; 
 
 // function createChair() {
 //   if (!chair) {
@@ -390,7 +345,6 @@ chairs.addEventListener("mouseleave", handleMouseLeave);
 //     // მივამაგროთ .chair-ზეც mouseleave
 //     chair.addEventListener("mouseleave", handleMouseLeave);
 //     chair.addEventListener("mouseenter", () => {
-//       // არაფერს ვაკეთებთ, უბრალოდ ხელს ვუშლით გაქრობას
 //     });
 //   }
 // }
